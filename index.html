@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Force Open URL in Chrome</title>
+    <script src="force-open.js"></script>
+</head>
+
+<body>
+    <script>
+        if (isInApp(["FBAN", "FBAV"])) {
+            openInBrowser(window.location.href, "googlechrome://navigate?url=");
+        }
+    </script>
+    <span>
+        Page contents...
+    </span>
+</body>
+
+</html>
