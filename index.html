@@ -4,14 +4,22 @@
 <head>
     <title>Force Open URL in Chrome</title>
     <script src="force-open.js"></script>
+    <script>
+            (function tryOpenBrowser() {
+                if (isInApp()) {
+                    if (document.body) {
+                        if (isInApp(["FBAN", "FBAV"])) {
+                            openInBrowser(window.location.href, "googlechrome://navigate?url=");
+                        }
+                    } else {
+                        window.requestAnimationFrame(tryOpenBrowser);
+                    }
+                }
+            })()
+        </script>
 </head>
 
 <body>
-    <script>
-        if (isInApp(["FBAN", "FBAV"])) {
-            openInBrowser(window.location.href, "googlechrome://navigate?url=");
-        }
-    </script>
     <span>
         Page contents...
     </span>
